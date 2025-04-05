@@ -14,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::orderBy('nome','ASC')->get();
         dd($categorias);
     }
     
