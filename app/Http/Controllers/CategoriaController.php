@@ -69,7 +69,20 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $messages = [
+            'nome.required' => 'O nome é um campo obrigatório!',
+        ];
+    
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+        ], $messages);
+
+        $categoria = Categoria::find($id);
+        $categoria->nome = $request->nome;
+        $categoria->save();
+
+        return redirect()->route('categoria.index')->with('message', 'Categoria ATUALIZADA com sucesso!');
+
     }
 
     /**
