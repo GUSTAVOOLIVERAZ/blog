@@ -11,9 +11,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        dd('INDEX');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
