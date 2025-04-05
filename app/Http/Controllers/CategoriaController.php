@@ -31,12 +31,21 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-    $categoria = new Categoria();
-    $categoria->nome = $request->nome;
-    $categoria->save();
+        $messages = [
+            'nome.required' => 'O nome é um campo obrigatório!',
+        ];
+    
+        $validated = $request->validate([
+            'nome' => 'required|:5',
+        ], $messages);
+    
+        $categoria = new Categoria();
+        $categoria->nome = $request->nome;
+        $categoria->save();
+    
+        return redirect()->route('categoria.index')->with('success', 'Categoria criada com sucesso!');
     }
-
+    
     /**
      * Display the specified resource.
      */
