@@ -36,14 +36,15 @@ class CategoriaController extends Controller
         ];
     
         $validated = $request->validate([
-            'nome' => 'required|:5',
+            'nome' => 'required|min:5',
         ], $messages);
     
         $categoria = new Categoria();
         $categoria->nome = $request->nome;
         $categoria->save();
     
-        return redirect()->route('categoria.index')->with('success', 'Categoria criada com sucesso!');
+        return redirect()->route('categoria.index')->with('message', 'Categoria criada com sucesso!');
+
     }
     
     /**
@@ -59,7 +60,8 @@ class CategoriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view('categoria.edit', compact('categoria'));
     }
 
     /**
