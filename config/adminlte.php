@@ -316,8 +316,8 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'blog',
-            'url' => 'admin/blog',
+            'text' => 'Categoria',
+            'url' => 'categoria',
             //'can' => 'manage-blog',
         ],
         [
