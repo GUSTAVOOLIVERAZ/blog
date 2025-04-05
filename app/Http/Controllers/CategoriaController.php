@@ -15,7 +15,7 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::orderBy('nome','ASC')->get();
-       return view('categoria.categoria.index');
+       return view('categoria.index',compact('categorias'));
     }
     
     /**
