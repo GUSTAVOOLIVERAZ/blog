@@ -23,25 +23,21 @@
                         @csrf
                         @method('PUT')
 
+                        <select name="categoria_id" class="form-control">
+                        @foreach ($categorias as $value)
+                            <option value="{{ $value->id }}">{{ $value->nome }}</option>
+                        @endforeach
+                    </select>
+
+                        
                         <div class="form-group">
                             <label for="titulo">Título:</label>
-                            <input 
-                                type="text" 
-                                name="titulo" 
-                                id="titulo" 
-                                value="{{ old('titulo', $postagem->titulo) }}" 
-                                class="form-control"
-                            > 
+                            <input type="text" name="titulo" id="titulo" class="form-control" value="{{ old('titulo') }}">
 
-                            <label for="descricao">Descrição:</label>
-                            <textarea 
-                                name="descricao" 
-                                id="descricao" 
-                                rows="5" 
-                                class="form-control"
-                            >{{ old('descricao', $postagem->descricao) }}</textarea>
-                        </div>
+                            <label for="descricao" class="mt-3">Descrição:</label>
+            <textarea name="descricao" id="descricao" rows="5" class="form-control" required>{{ old('descricao') }}
 
+                            </textarea>
                         <button type="submit" class="btn btn-primary">ENVIAR</button>
                     </form>
 
