@@ -9,30 +9,42 @@
 
                 <div class="card-body">
 
-                                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-               
-               
-                <form action="{{ url('postagem/' . $postagem->id) }}" method="post">
-                    @method('PUT')
-                 @csrf
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="{{ $postagem->titulo }} "class="form-control"> 
-                </div>
-                <button type="submit" class="btn btn-primary">ENVIAR</button>
-            </form>
+                    <form action="{{ url('postagem/' . $postagem->id) }}" method="post">
+                        @csrf
+                        @method('PUT')
 
-               
-                    
+                        <div class="form-group">
+                            <label for="titulo">Título:</label>
+                            <input 
+                                type="text" 
+                                name="titulo" 
+                                id="titulo" 
+                                value="{{ old('titulo', $postagem->titulo) }}" 
+                                class="form-control"
+                            > 
+
+                            <label for="descricao">Descrição:</label>
+                            <textarea 
+                                name="descricao" 
+                                id="descricao" 
+                                rows="5" 
+                                class="form-control"
+                            >{{ old('descricao', $postagem->descricao) }}</textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">ENVIAR</button>
+                    </form>
+
                 </div>
             </div>
         </div>

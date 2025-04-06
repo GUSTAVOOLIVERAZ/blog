@@ -29,7 +29,8 @@ class PostagemController extends Controller
      */
     public function create()
     {
-        return view('postagem.create');
+        $categorias = Categoria::orderBy('nome', 'ASC')->get();
+        return view('postagem.postagem_create', compact('categorias'));
     }
 
     /**
@@ -44,10 +45,13 @@ class PostagemController extends Controller
         $validated = $request->validate([
             'titulo' => 'required|min:5',
         ], $messages);
-    
-        $postagem = new Postagem();
-        $postagem->titulo = $request->titulo;
-        $postagem->save();
+              //dd($request->all());
+            $postagem = new Postagem();
+            $postagem->titulo = $request->titulo;
+            $postagem->descricao = $request->descricao;
+
+            $postagem->save();
+
     
         return redirect()->route('postagem.index')->with('message', 'Postagem criada com sucesso!');
 
