@@ -40,7 +40,7 @@
                     @foreach ($postagens as $postagem)
                         <tr>
                             <td>{{ $postagem->id }}</td>
-                            <td>{{ $postagem->categoria_id }}</td>
+                            <td>{{ $postagem->categoria->nome }}</td>
                             <td>{{ $postagem->titulo }}</td>
                             <td>
                                 <a class="btn btn-info" href="{{ url('postagem/' . $postagem->id) }}">Visualizar</a>
