@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\PostagemController
-
 use App\Http\Controllers\Controller;
 
 use App\Models\Categoria;
