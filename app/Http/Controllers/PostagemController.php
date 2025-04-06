@@ -30,6 +30,7 @@ class PostagemController extends Controller
     public function create()
     {
         $categorias = Categoria::orderBy('nome', 'ASC')->get();
+        $postagem = Categoria::orderBy('nome', 'ASC')->get();
         return view('postagem.create', compact('categorias'));
     }
 
@@ -43,7 +44,7 @@ class PostagemController extends Controller
         ];
     
         $validated = $request->validate([
-            'categoria_id' => 'required|min:5',
+            'categoria_id' => 'required|integer|exists:categorias,id',
             'titulo' => 'required|min:5',
             'descricao' => 'required|min:5',
         ], $messages);

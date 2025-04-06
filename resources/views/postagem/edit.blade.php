@@ -23,21 +23,38 @@
                         @csrf
                         @method('PUT')
 
-                        <select name="categoria_id" class="form-control">
-                        @foreach ($categorias as $value)
-                            <option value="{{ $value->id }}">{{ $value->nome }}</option>
-                        @endforeach
-                    </select>
+                        <div class="form-group mb-3">
+                            <label for="categoria_id">Categoria:</label>
+                            <select name="categoria_id" id="categoria_id" class="form-control">
+                                @foreach ($categorias as $value)
+                                    <option value="{{ $value->id }}" {{ $value->id == $postagem->categoria_id ? 'selected' : '' }}>
+                                        {{ $value->nome }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                        
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="titulo">Título:</label>
-                            <input type="text" name="titulo" id="titulo" class="form-control" value="{{ old('titulo') }}">
+                            <input 
+                                type="text" 
+                                name="titulo" 
+                                id="titulo" 
+                                class="form-control" 
+                                value="{{ old('titulo', $postagem->titulo) }}" 
+                                required>
+                        </div>
 
-                            <label for="descricao" class="mt-3">Descrição:</label>
-            <textarea name="descricao" id="descricao" rows="5" class="form-control" required>{{ old('descricao') }}
+                        <div class="form-group mb-3">
+                            <label for="descricao">Descrição:</label>
+                            <textarea 
+                                name="descricao" 
+                                id="descricao" 
+                                rows="5" 
+                                class="form-control" 
+                                required>{{ old('descricao', $postagem->descricao) }}</textarea>
+                        </div>
 
-                            </textarea>
                         <button type="submit" class="btn btn-primary">ENVIAR</button>
                     </form>
 
