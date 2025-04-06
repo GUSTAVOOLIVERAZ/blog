@@ -92,9 +92,24 @@ class PostagemController extends Controller
             'titulo' => 'required|min:5',
         ], $messages);
 
-        $postagem = Postagem::find($id);
-        $postagem->titulo = $request->titulo;
-        $postagem->save();
+        $messages = [
+            'titulo.required' => 'O titulo é um campo obrigatório!',
+        ];
+    
+        $validated = $request->validate([
+            'categoria_id' => 'required|integer|exists:categorias,id',
+            'titulo' => 'required|min:5',
+            'descricao' => 'required|min:5',
+        ], $messages);
+
+         //dd($request->all());
+         $postagem = new Postagem();
+         $postagem->categoria_id = $request->categoria_id;
+         $postagem->titulo = $request->titulo;
+         $postagem->descricao = $request->descricao;
+
+         $postagem->save();
+
 
         return redirect()->route('postagem.index')->with('message', 'Postagem ATUALIZADA com sucesso!');
 
