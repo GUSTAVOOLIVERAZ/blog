@@ -43,7 +43,7 @@
                             <td>
                                 <a class="btn btn-info" href="{{ url('categoria/' . $categoria->id) }}">Visualizar</a>
                                 <a class="btn btn-warning" href="{{ url('categoria/' . $categoria->id . '/edit') }}">Editar</a>
-                                <form action="{{ url('categoria/'. $value->id) }}" method="post" onsubmit='return ConfirmDelete()'>
+                                <form action="{{ url('categoria/'. $categoria->id) }}" method="post" onsubmit='return ConfirmDelete()'>
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger">EXCLUIR</button>
