@@ -320,6 +320,12 @@ return [
             'url' => 'categoria',
             //'can' => 'manage-blog',
         ],
+
+        [
+            'text' => 'Postagem',
+            'url' => 'postagem',
+            //'can' => 'manage-blog',
+        ],
         [
             'text' => 'pages',
             'url' => 'admin/pages',
