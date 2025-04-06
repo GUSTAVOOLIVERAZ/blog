@@ -24,12 +24,12 @@
                     <form action="{{ url('postagem') }}" method="POST">
                         @csrf
 
-                        <select name="cars" id="cars" class="form-control">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                        </select>
+                        <select name="categoria_id" class="form-control">
+                        @foreach ($categorias as $value)
+                            <option value="{{ $value->id }}">{{ $value->nome }}</option>
+                        @endforeach
+                    </select>
+
                         
                         <div class="form-group">
                             <label for="titulo">Título:</label>

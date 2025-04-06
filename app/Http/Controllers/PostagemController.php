@@ -30,7 +30,7 @@ class PostagemController extends Controller
     public function create()
     {
         $categorias = Categoria::orderBy('nome', 'ASC')->get();
-        return view('postagem.postagem_create', compact('categorias'));
+        return view('postagem.create', compact('categorias'));
     }
 
     /**
