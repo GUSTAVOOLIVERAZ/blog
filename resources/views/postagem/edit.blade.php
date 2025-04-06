@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Categoria - EDIT</div>
+                <div class="card-header">Postagem - EDIT</div>
 
                 <div class="card-body">
 
@@ -21,12 +21,12 @@
 
                
                
-                <form action="{{ url('categoria/' . $categoria->id) }}" method="post">
+                <form action="{{ url('postagem/' . $postagem->id) }}" method="post">
                     @method('PUT')
                  @csrf
                 <div class="form-group">
                     <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="{{ $categoria->nome }} "class="form-control"> 
+                    <input type="text" name="nome" value="{{ $postagem->titulo }} "class="form-control"> 
                 </div>
                 <button type="submit" class="btn btn-primary">ENVIAR</button>
             </form>

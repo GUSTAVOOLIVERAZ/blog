@@ -5,9 +5,9 @@
                     <div class="row justify-content-center">
                     <div class="col-md-8">
                     <div class="card">
-                    <div class="card-header">Categoria</div>
+                    <div class="card-header">Postagem</div>
                     <div class="card-body">
-                    <a class="btn btn-success" href="{{ url('categoria/create') }}">CRIAR</a>
+                    <a class="btn btn-success" href="{{ url('postagem/create') }}">CRIAR</a>
                     @if (session('message'))
                     <div class="alert alert-success">
                     {{ session('message') }}
@@ -31,19 +31,21 @@
     <thead>
         <tr>
                         <th>ID</th>
-                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Título</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categorias as $categoria)
+                    @foreach ($postagens as $postagem)
                         <tr>
-                            <td>{{ $categoria->id }}</td>
-                            <td>{{ $categoria->nome }}</td>
+                            <td>{{ $postagem->id }}</td>
+                            <td>{{ $postagem->categoria_id }}</td>
+                            <td>{{ $postagem->titulo }}</td>
                             <td>
-                                <a class="btn btn-info" href="{{ url('categoria/' . $categoria->id) }}">Visualizar</a>
-                                <a class="btn btn-warning" href="{{ url('categoria/' . $categoria->id . '/edit') }}">Editar</a>
-                                <form action="{{ url('categoria/'. $categoria->id) }}" method="post" onsubmit='return ConfirmDelete()'>
+                                <a class="btn btn-info" href="{{ url('postagem/' . $postagem->id) }}">Visualizar</a>
+                                <a class="btn btn-warning" href="{{ url('postagem/' . $postagem->id . '/edit') }}">Editar</a>
+                                <form action="{{ url('postagem/'. $postagem->id) }}" method="post" onsubmit='return ConfirmDelete()'>
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger">EXCLUIR</button>

@@ -5,14 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Categoria - SHOW</div>
+                <div class="card-header">Postagem - SHOW</div>
 
                 <div class="card-body">
 
-                <p><strong>Id: </strong>{{ $categoria->id }}</p>
-            <p><strong>Nome: </strong>{{ $categoria->nome }}</p>
-            <p><strong>Criação: </strong>{{ $categoria->created_at }}</p>
-            <p><strong>Atualização: </strong>{{ $categoria->updated_at }}</p>
+                <p><strong>Id: </strong>{{ $postagem->id }}</p>
+            <p><strong>Categoria: </strong>{{ $postagem->categoria_id }}</p>
+            <p><strong>Título: </strong>{{ $postagem->titulo }}</p>
+            <p><strong>Criação: </strong>{{ $postagem->created_at }}</p>
+            <p><strong>Atualização: </strong>{{ $postagem->updated_at }}</p>
             
 
                
