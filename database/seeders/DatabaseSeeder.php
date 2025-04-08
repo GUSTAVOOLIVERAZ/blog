@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             CategoriaSeeder::class,
             UserSeeder::class,
             PostagemSeeder::class,
-
         ]);
     }
 }

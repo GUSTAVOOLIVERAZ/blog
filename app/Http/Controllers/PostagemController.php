@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-
 use App\Models\Categoria;
-
 use App\Models\Postagem;
-
-
 use Illuminate\Http\Request;
 
 class PostagemController extends Controller
@@ -20,10 +16,8 @@ class PostagemController extends Controller
     {
         $postagens = Postagem::orderBy('titulo','ASC')->get();
         return view('postagem.index', compact('postagens'));
-
-
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -42,7 +36,7 @@ class PostagemController extends Controller
         $messages = [
             'titulo.required' => 'O titulo é um campo obrigatório!',
         ];
-    
+
         $validated = $request->validate([
             'categoria_id' => 'required|integer|exists:categorias,id',
             'titulo' => 'required|min:5',
@@ -56,11 +50,10 @@ class PostagemController extends Controller
 
             $postagem->save();
 
-    
         return redirect()->route('postagem.index')->with('message', 'Postagem criada com sucesso!');
 
     }
-    
+
     /**
      * Display the specified resource.
      */
@@ -84,18 +77,11 @@ class PostagemController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $messages = [
-            'titulo.required' => 'O titulo é um campo obrigatório!',
-        ];
-    
-        $validated = $request->validate([
-            'titulo' => 'required|min:5',
-        ], $messages);
 
         $messages = [
             'titulo.required' => 'O titulo é um campo obrigatório!',
         ];
-    
+
         $validated = $request->validate([
             'categoria_id' => 'required|integer|exists:categorias,id',
             'titulo' => 'required|min:5',
@@ -110,7 +96,6 @@ class PostagemController extends Controller
 
          $postagem->save();
 
-
         return redirect()->route('postagem.index')->with('message', 'Postagem ATUALIZADA com sucesso!');
 
     }
@@ -123,7 +108,7 @@ class PostagemController extends Controller
         $postagem = Postagem::find($id);
         $postagem->delete();
 
-return redirect()->route('postagem.index')->with('message', 'Postagem excluída com sucesso!');
+        return redirect()->route('postagem.index')->with('message', 'Postagem excluída com sucesso!');
 
     }
 }

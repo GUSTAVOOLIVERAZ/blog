@@ -15,9 +15,9 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::orderBy('nome','ASC')->get();
-       return view('categoria.index',compact('categorias'));
+        return view('categoria.index',compact('categorias'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -34,26 +34,27 @@ class CategoriaController extends Controller
         $messages = [
             'nome.required' => 'O nome é um campo obrigatório!',
         ];
-    
+
         $validated = $request->validate([
             'nome' => 'required|min:5',
         ], $messages);
-    
+
         $categoria = new Categoria();
         $categoria->nome = $request->nome;
         $categoria->save();
-    
+
         return redirect()->route('categoria.index')->with('message', 'Categoria criada com sucesso!');
 
     }
-    
+
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         $categoria= Categoria:: find($id);
-        return view('categoria.show', compact('categoria'));    }
+        return view('categoria.show', compact('categoria'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -72,7 +73,7 @@ class CategoriaController extends Controller
         $messages = [
             'nome.required' => 'O nome é um campo obrigatório!',
         ];
-    
+
         $validated = $request->validate([
             'nome' => 'required|min:5',
         ], $messages);
@@ -92,8 +93,7 @@ class CategoriaController extends Controller
     {
         $categoria = Categoria::find($id);
         $categoria->delete();
-
-return redirect()->route('categoria.index')->with('message', 'Categoria excluída com sucesso!');
+        return redirect()->route('categoria.index')->with('message', 'Categoria excluída com sucesso!');
 
     }
 }
