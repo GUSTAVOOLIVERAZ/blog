@@ -20,6 +20,8 @@
 
 
                                         </div>
+
+                                        {{ $postagens->links() }}
                                     </section>
 
                     @endsection
