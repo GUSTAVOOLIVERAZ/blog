@@ -51,7 +51,7 @@ class PostagemController extends Controller
         
         $postagem = new Postagem();
         $postagem->categoria_id = $request->categoria_id;
-        $postagem->user_id = auth()->user ()->id;
+        $postagem->user_id = auth()->user()->id;
         $postagem->titulo = $request->titulo;
         $postagem->descricao = $request->descricao;
         $postagem->save();
