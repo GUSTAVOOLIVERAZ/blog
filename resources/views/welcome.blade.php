@@ -4,5 +4,5 @@
 
 
 @section('content')
-    <p>This is my body content.</p>
+    <p>Meu Conteúdo.</p>
 @endsection
