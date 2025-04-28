@@ -13,6 +13,7 @@
                             <article class="box post">
                                 <header>
                                     <h2>{{ $value->titulo }}</h2>
+                                    <p>Categoria: {{ $value->categoria->nome }}</p>
                                 </header>
                                 <p>{!! $value->descricao !!}</p>
                             </article>
