@@ -3,10 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PostagemController;
+use App\Http\Controllers\SiteController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+ //   return view('welcome');
+//});
+
+Route::get('/', [SiteController::class, 'index'])->name('site.index');
+
 
 Auth::routes();
 
