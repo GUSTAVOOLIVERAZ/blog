@@ -17,11 +17,11 @@
                                 <p>{!! $value->descricao !!}</p>
                             </article>
                             @endforeach
-
+                            
+                            {{ $postagens->links() }}
 
                                         </div>
-
-                                        {{ $postagens->links() }}
                                     </section>
+                                    
 
                     @endsection
