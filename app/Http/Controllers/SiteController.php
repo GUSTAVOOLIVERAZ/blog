@@ -12,7 +12,7 @@ class SiteController extends Controller
     public function index(){
         $categorias = Categoria::orderBy('nome', 'ASC')->get();
         $categorias = Postagem::orderBy('created_at', 'DESC')->paginate(10);
-        return view('welcome', compact('categorias'));
+        return view('welcome', compact('categorias', 'postagens'));
 
 
         
