@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Postagem;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 class PostagemController extends Controller
 {
     /**
@@ -44,9 +48,10 @@ class PostagemController extends Controller
         ], $messages);
 
         //dd($request->all());
+        
         $postagem = new Postagem();
         $postagem->categoria_id = $request->categoria_id;
-        $postagem->user_id = auth()->user()->id;
+        $postagem->user_id = auth()->user ()->id;
         $postagem->titulo = $request->titulo;
         $postagem->descricao = $request->descricao;
         $postagem->save();
