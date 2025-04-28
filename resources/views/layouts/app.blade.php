@@ -97,7 +97,7 @@
 									<header>
 										<h2>What's this all about?</h2>
 									</header>
-									<a href="#" class="image featured"><img src="images/pic10.jpg" alt="" /></a>
+									<a href="#" class="image featured"><img src="{{ url("images/pic10.jpg")}}" alt="" /></a>
 									<p>
 										This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
 										<a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It's released for free under
