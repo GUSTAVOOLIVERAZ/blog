@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/PostagemByCategoriaId/{id}', [SiteController::class, 'PostagemByCategoriaId'])->name('site.PostagemByCategoriaId');
+Route::get('/PostagemByAutorId/{id}', [SiteController::class, 'PostagemByAutorId'])->name('site.PostagemByAutorId');
 
 
 Auth::routes();
