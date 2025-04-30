@@ -10,6 +10,11 @@ class UserController extends Controller
     public function alterarSenha() {
         return view('user.alterarSenha');
     }
+    public function updateSenha(Request $request) {
+        //dd($request->all());
+    }
+
+
     /**
      * Display a listing of the resource.
      */
