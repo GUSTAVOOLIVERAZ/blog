@@ -12,6 +12,19 @@ class UserController extends Controller
     }
     public function updateSenha(Request $request) {
         //dd($request->all());
+
+
+        "password_old" => "123456789"
+        "password_new" => "987654321"
+        "password_new2" => "987654321"
+
+        $messages = [
+            'nome.required' => 'O nome é um campo obrigatório!',
+        ];
+
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+        ], $messages);
     }
 
 
