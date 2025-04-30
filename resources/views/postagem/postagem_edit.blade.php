@@ -46,7 +46,7 @@
 
                         <button type="submit" class="btn btn-primary">ENVIAR</button>
                     </form>
-                    
+
                     <script>
                     var editor1 = new RichTextEditor("#inp_editor1");
                 </script>

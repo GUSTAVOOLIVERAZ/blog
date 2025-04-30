@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
 
 //Route::get('/', function () {
  //   return view('welcome');
@@ -63,5 +64,14 @@ Route::get('/PostagemByAutorId/{id}', [SiteController::class, 'PostagemByAutorId
         Route::delete('/postagem/{id}', [PostagemController::class, 'destroy'])->name('postagem.destroy');
 
         // -----------------------------------------------------------------------------[
+
+         //ADMIN
+
+
+    Route::get('admin/alterarSenha', [UserController::class, 'alterarSenha'])->name('admin/alterarSenha');
+
+    Route::
+
+
 
     });
