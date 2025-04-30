@@ -70,7 +70,7 @@ Route::get('/PostagemByAutorId/{id}', [SiteController::class, 'PostagemByAutorId
 
     Route::get('admin/alterarSenha', [UserController::class, 'alterarSenha'])->name('admin/alterarSenha');
 
-    Route::
+    Route::put('admin/updateSenha', [UserController::class, 'updateSenha'])->name('admin.updateSenha');
 
 
 

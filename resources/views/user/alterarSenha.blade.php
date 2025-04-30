@@ -18,6 +18,7 @@
                 @endif
 
                     <form action="{{ url('admin/updateSenha') }}" method="post">
+                        @method('PUT')
                         @csrf
 
                         <label>Senha antiga:</label>
