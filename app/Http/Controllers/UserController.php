@@ -36,7 +36,11 @@ class UserController extends Controller
     ], $messages);
 
     if (Hash::check($request->password_old, auth()->user()->password)) {
-        dd('É igual!');
+        //dd('É igual!');
+        $user = auth()->user();
+        $user->password = Hash::make($request->password_new);
+        $user->save();
+        return redirect()->route('home')->with('message', 'Senha alterada com sucesso!');
     } else {
         return redirect()->back()->with('message', 'A senha antiga não confere!'); 
     }
