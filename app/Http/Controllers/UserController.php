@@ -6,27 +6,32 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
-    public function alterarSenha() {
+    public function alterarSenha()
+    {
         return view('user.alterarSenha');
     }
-    public function updateSenha(Request $request) {
+
+    public function updateSenha(Request $request)
+    {
         //dd($request->all());
 
-
-        "password_old" => "123456789"
-        "password_new" => "987654321"
-        "password_new2" => "987654321"
+        //password_old
+        //password_new
+        //password_new2
 
         $messages = [
             'nome.required' => 'O nome é um campo obrigatório!',
+            'password_old.required' => 'A senha antiga é um campo obrigatório!',
+            'password_new.required' => 'A senha nova é um campo obrigatório!',
+            'password_new2.required' => 'A senha nova (repetir) é um campo obrigatório!',
         ];
 
         $validated = $request->validate([
-            'nome' => 'required|min:5',
+            'password_old' => 'required|min:5',
+            'password_new' => 'required|min:5|same:password_new2',
+            'password_new2' => 'required|min:5',
         ], $messages);
     }
-
 
     /**
      * Display a listing of the resource.
