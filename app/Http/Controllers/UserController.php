@@ -38,7 +38,7 @@ class UserController extends Controller
     if (Hash::check($request->password_old, auth()->user()->password)) {
         dd('É igual!');
     } else {
-        dd('É diferente!');
+        return redirect()->back()->with('message', 'A senha antiga não confere!'); 
     }
 }
 
