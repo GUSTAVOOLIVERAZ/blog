@@ -5,11 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Alterar a senha de <strong>{{ auth()->user();->name }}</strong></div>
+                <div class="card-header">
+                    Alterar a senha de <strong>{{ auth()->user()->name }}</strong>
+                </div>
 
                 @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
+                <div class="alert alert-danger mt-2">
+                    <ul class="mb-0">
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
@@ -17,21 +19,33 @@
                 </div>
                 @endif
 
-                    <form action="{{ url('admin/updateSenha') }}" method="post">
-                        @method('PUT')
-                        @csrf
+                @if (session('success'))
+                    <div class="alert alert-success mt-2">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
-                        <label>Senha antiga:</label>
-                        <input type="text" name="password_old" class="form-control">
+                <form action="{{ url('admin/updateSenha') }}" method="post" class="p-3">
+                    @method('PUT')
+                    @csrf
 
-                        <label>Senha nova:</label>
-                        <input type="text" name="password_new" class="form-control">
+                    <div class="form-group">
+                        <label for="password_old">Senha antiga:</label>
+                        <input type="password" name="password_old" class="form-control" required>
+                    </div>
 
-                        <label>Senha nova (repetir):</label>
-                        <input type="text" name="password_new2" class="form-control">
+                    <div class="form-group">
+                        <label for="password_new">Senha nova:</label>
+                        <input type="password" name="password_new" class="form-control" required>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary">ENVIAR</button>
-                    </form>
+                    <div class="form-group">
+                        <label for="password_new2">Senha nova (repetir):</label>
+                        <input type="password" name="password_new2" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">ENVIAR</button>
+                </form>
 
             </div>
         </div>
