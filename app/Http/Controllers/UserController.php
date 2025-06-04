@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -31,6 +32,17 @@ class UserController extends Controller
             'password_new' => 'required|min:5|same:password_new2',
             'password_new2' => 'required|min:5',
         ], $messages);
+
+            //dd(auth()->user()->password);
+
+            if (Hash::check($request->password_old, auth()->user()->password)) {
+                dd('É igual!');
+            } else {
+                dd('É diferente!');
+            }
+            
+            }
+        
     }
 
     /**
