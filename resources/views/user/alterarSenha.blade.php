@@ -19,6 +19,11 @@
                 </div>
                 @endif
 
+                <div class="alert alert-alert">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+
                 @if (session('success'))
                     <div class="alert alert-success mt-2">
                         {{ session('success') }}
