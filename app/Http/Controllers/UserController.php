@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+/**
+ * Class UserController
+ * @package App\Http\Controllers
+ *
+ * Controller for managing user-related actions, such as changing passwords.
+ */
 
 class UserController extends Controller
 {
@@ -13,37 +21,27 @@ class UserController extends Controller
     }
 
     public function updateSenha(Request $request)
-    {
-        //dd($request->all());
+{
+    $messages = [
+        'nome.required' => 'O nome é um campo obrigatório!',
+        'password_old.required' => 'A senha antiga é um campo obrigatório!',
+        'password_new.required' => 'A senha nova é um campo obrigatório!',
+        'password_new2.required' => 'A senha nova (repetir) é um campo obrigatório!',
+    ];
 
-        //password_old
-        //password_new
-        //password_new2
+    $validated = $request->validate([
+        'password_old' => 'required|min:5',
+        'password_new' => 'required|min:5|same:password_new2',
+        'password_new2' => 'required|min:5',
+    ], $messages);
 
-        $messages = [
-            'nome.required' => 'O nome é um campo obrigatório!',
-            'password_old.required' => 'A senha antiga é um campo obrigatório!',
-            'password_new.required' => 'A senha nova é um campo obrigatório!',
-            'password_new2.required' => 'A senha nova (repetir) é um campo obrigatório!',
-        ];
-
-        $validated = $request->validate([
-            'password_old' => 'required|min:5',
-            'password_new' => 'required|min:5|same:password_new2',
-            'password_new2' => 'required|min:5',
-        ], $messages);
-
-            //dd(auth()->user()->password);
-
-            if (Hash::check($request->password_old, auth()->user()->password)) {
-                dd('É igual!');
-            } else {
-                dd('É diferente!');
-            }
-            
-            }
-        
+    if (Hash::check($request->password_old, auth()->user()->password)) {
+        dd('É igual!');
+    } else {
+        dd('É diferente!');
     }
+}
+
 
     /**
      * Display a listing of the resource.
