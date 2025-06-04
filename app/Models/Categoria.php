@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
+use OwenIt\Auditing\Traits\Auditable;
 
-
-class Categoria extends Model implements Auditable
-
+class Categoria extends Model implements AuditableContract
 {
-    use \OwenIt\Auditing\Auditable;
+    use Auditable;
+
     protected $table = 'categorias';
-
-
 }
