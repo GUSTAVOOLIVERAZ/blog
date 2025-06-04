@@ -19,15 +19,16 @@
                 </div>
                 @endif
 
+                @if (session('message'))
                 <div class="alert alert-success">
-                            {{ session('message') }}
-                        </div>
-                    @endif
+                    {{ session('message') }}
+                </div>
+                @endif
 
                 @if (session('success'))
-                    <div class="alert alert-success mt-2">
-                        {{ session('success') }}
-                    </div>
+                <div class="alert alert-success mt-2">
+                    {{ session('success') }}
+                </div>
                 @endif
 
                 <form action="{{ url('admin/updateSenha') }}" method="post" class="p-3">
